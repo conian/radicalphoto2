@@ -30,9 +30,9 @@
 
 		<p class="errors">All fields are required.</p>
 
-		<p><label>Name: <input type="text" size="25" name="name" id="username"></label></p>
-		<p><label>Email: <input type="text" size="25" name="email" id="email"></label></p>
-		<p><label>Message:<br> <textarea cols="50" rows="5" name="message" id="my_message"></textarea></label></p>
+		<p><label>Name: <input type="text" size="25" name="name" id="username"><span id="name_err" class="errors">&nbsp;All fields are required.</span></label></p>
+		<p><label>Email: <input type="text" size="25" name="email" id="email"><span id="email_err" class="errors">&nbsp;All fields are required.</span></label></p>
+		<p><label>Message:<br> <textarea cols="50" rows="5" name="message" id="my_message"></textarea><span id="msg_err" class="errors">&nbsp;All fields are required.</span></label></p>
 		<p><input type="submit" value="Contact Us"></p>
 	</form>
 
@@ -43,6 +43,42 @@
 	</div>
 
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+    
+    $(document).ready(function () {
+        $('form').submit(function () {
+            var errors = 0;     
+            
+            if ($('#username').val() == "") {
+                $('#name_err').css({display:'inline-block'});
+                errors++;
+            } else {
+                $('#name_err').css({display:'none'});
+            }
+
+            if ($('#email').val() == "") {  
+                $('#email_err').css({display:'inline-block'});
+                errors++;
+            } else {
+                $('#email_err').css({display:'none'});
+            }
+            
+            if ($('#my_message').val() == "") { 
+                $('#msg_err').css({display:'inline-block'});
+                errors++;
+            } else {
+                $('#msg_err').css({display:'none'});
+            }
+          
+            if (errors > 0) {
+               return false; 
+            }
+        });
+    });    
+
+</script>
 
 </body>
 </html>

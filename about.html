@@ -4,6 +4,7 @@
 	<title>RadicalPhoto About</title>
 	<link href='http://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet'>
 	<link type="text/css" rel="stylesheet" href="css/radicalphoto.css">
+    
 </head>
 <body>
 
@@ -21,30 +22,49 @@
 
 <div id="main_wrapper">
 
-	<div id="content">
-	<h2>About RadicalPhoto</h2>
+    <div id="content">
+        <h2>About RadicalPhoto</h2>
 
-	<p>Today is <span>July 17, 2015</span>. Stay tuned, we have exciting news about our company coming in a few more weeks!</p>
+        <p>Today is <span>July 17, 2015</span>. Stay tuned, we have exciting news about our company coming in a few more weeks!</p>
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
 
-	<h3>Our Team</h3>
+        <h3>Our Team</h3>
 
-	<p id="bios">
-		<a href="sheila.html">Sheila</a> (President) | 
-		<a href="frank.html">Frank</a> (Vice President) | 
-		<a href="joanne.html">Joanne</a> (Senior Photographer)
-	</p> 
-
-	<div id="bio"></div>
-
-	</div>
-
-	<div id="footer">
-	<p>All content &copy; Copyright</p>
-	</div>
-
+        <p id="bios">
+            <a href="sheila.html">Sheila</a> (President) | 
+            <a href="frank.html">Frank</a> (Vice President) | 
+            <a href="joanne.html">Joanne</a> (Senior Photographer)
+        </p>   
+    </div>
+	    
+    <div id="bio"></div>
 </div>
+    
+<div id="footer">
+   <p>All content &copy; Copyright</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<!--<script src="js/plugins.js"></script>-->
+
+<script>
+    
+    $(document).ready(function () {
+        $('#bios a').click(function (e) {
+            e.preventDefault();
+            var disp = 0;
+            var link_url = $(this).attr('href');
+            $('#bio').load(link_url + " #content"); 
+            
+            $('#bio').css({display:'none'});
+            $('#bio').fadeIn('slow');
+        });
+    });
+    
+
+</script>
 
 </body>
 </html>
